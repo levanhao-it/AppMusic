@@ -131,7 +131,10 @@ function handleEndSong() {
 }
 
 function start(musicList, indexSong) {
-  songElement.setAttribute('src', `./music/${musicList[indexSong].file}`);
+  songElement.setAttribute(
+    'src',
+    `https://github.com/levanhao-it/AppMusic/raw/master/music/${musicList[indexSong].file}`
+  );
   musicNameElement.textContent = musicList[indexSong].title;
   authorElement.textContent = musicList[indexSong].author;
   imageElment.setAttribute('src', musicList[indexSong].image);
