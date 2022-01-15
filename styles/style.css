@@ -66,6 +66,12 @@ body {
   padding: 30px 15px 30px;
 }
 
+.music .status {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
 .music .music-thumb {
   width: 200px;
   height: 200px;
@@ -209,18 +215,42 @@ body {
 
 .music .controls .play-back {
   font-size: 20px;
+  border-radius: 100rem;
 }
 
-.music .controls .play-foward {
+.music .controls .play-back:hover {
+  -webkit-box-shadow: 0px 0px 0px 5px #cccccc;
+          box-shadow: 0px 0px 0px 5px #cccccc;
+}
+
+.music .controls .play-forward {
   font-size: 20px;
+  border-radius: 100rem;
+}
+
+.music .controls .play-forward:hover {
+  -webkit-box-shadow: 0px 0px 0px 5px #cccccc;
+          box-shadow: 0px 0px 0px 5px #cccccc;
 }
 
 .music .controls .play-repeat {
   font-size: 20px;
+  border-radius: 100rem;
+}
+
+.music .controls .play-repeat:hover {
+  -webkit-box-shadow: 0px 0px 0px 5px #cccccc;
+          box-shadow: 0px 0px 0px 5px #cccccc;
 }
 
 .music .controls .play-random {
   font-size: 20px;
+  border-radius: 100rem;
+}
+
+.music .controls .play-random:hover {
+  -webkit-box-shadow: 0px 0px 0px 5px #cccccc;
+          box-shadow: 0px 0px 0px 5px #cccccc;
 }
 
 .active {

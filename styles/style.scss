@@ -52,6 +52,12 @@ body {
     background-color: white;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 30px 15px 30px;
+
+    .status {
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
     .music-thumb {
         width: 200px;
         height: 200px;
@@ -148,15 +154,31 @@ body {
         }
         .play-back {
             font-size: 20px;
+            border-radius: 100rem;
         }
-        .play-foward {
+        .play-back:hover {
+            box-shadow: 0px 0px 0px 5px #cccccc;
+        }
+        .play-forward {
             font-size: 20px;
+            border-radius: 100rem;
+        }
+        .play-forward:hover {
+            box-shadow: 0px 0px 0px 5px #cccccc;
         }
         .play-repeat {
             font-size: 20px;
+            border-radius: 100rem;
+        }
+        .play-repeat:hover {
+            box-shadow: 0px 0px 0px 5px #cccccc;
         }
         .play-random {
             font-size: 20px;
+            border-radius: 100rem;
+        }
+        .play-random:hover {
+            box-shadow: 0px 0px 0px 5px #cccccc;
         }
     }
 }
