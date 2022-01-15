@@ -1,0 +1,243 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+/* remove animation for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+}
+
+.music {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background-color: white;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 30px 15px 30px;
+}
+
+.music .music-thumb {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 25px;
+}
+
+.music .music-thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100rem;
+  -webkit-box-shadow: 0 0 0 3px #ffb86b, 0 0 0 6px white, 0 0 0 9px #ff6bcb;
+          box-shadow: 0 0 0 3px #ffb86b, 0 0 0 6px white, 0 0 0 9px #ff6bcb;
+}
+
+.music .music-thumb.is-playing {
+  -webkit-animation: spinner 5s infinite linear;
+          animation: spinner 5s infinite linear;
+}
+
+.music .music-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 40px;
+}
+
+.music .music-content .content .music-name {
+  font-size: 18px;
+  font-weight: 400 bolder;
+}
+
+.music .music-content .content .singer {
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.music .music-content .heart-music {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.music .range {
+  -webkit-appearance: none;
+  /* Hides the slider so that custom slider can be made */
+  width: 100%;
+  /* Specific width is required for Firefox. */
+  background: transparent;
+  /* Otherwise white in Chrome */
+  margin-bottom: 10px;
+}
+
+.music .range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background-color: #999;
+}
+
+.music .range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: springgreen;
+  border-radius: 100rem;
+  margin-top: -6px;
+  -webkit-box-shadow: 0 0 0 3px white, 0 0 0 6px rgba(100, 100, 111, 0.05);
+          box-shadow: 0 0 0 3px white, 0 0 0 6px rgba(100, 100, 111, 0.05);
+}
+
+.music .timer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 40px;
+}
+
+.music .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0px 60px;
+  cursor: pointer;
+}
+
+.music .controls .play {
+  position: relative;
+}
+
+.music .controls .play .play-inner {
+  width: 50px;
+  height: 50px;
+  border-radius: 100rem;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  font-size: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.music .controls .play:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#ff6bcb), to(#ffb86b));
+  background-image: linear-gradient(to right bottom, #ff6bcb, #ffb86b);
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  border-radius: 100rem;
+}
+
+.music .controls .play-back {
+  font-size: 20px;
+}
+
+.music .controls .play-foward {
+  font-size: 20px;
+}
+
+.music .controls .play-repeat {
+  font-size: 20px;
+}
+
+.music .controls .play-random {
+  font-size: 20px;
+}
+
+.active {
+  color: #ff6bcb;
+}
+
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */
