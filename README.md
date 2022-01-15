@@ -1,6 +1,6 @@
 ## AppMusic Basic
 
-# Demo: https://app-music-haole1411.vercel.app/
+# Demo: https://levanhao-it.github.io/AppMusic/
 
 # Function
 - Play music
