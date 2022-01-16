@@ -99,8 +99,10 @@ function playPause() {
   }
 }
 function play() {
+  isPlaying = false;
   songElement.play();
   playElement.innerHTML = `<ion-icon name="pause-circle"></ion-icon>`;
+  musicThumb.classList.add('is-playing');
 }
 
 function displayTimer() {
