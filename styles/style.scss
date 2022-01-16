@@ -280,14 +280,10 @@ body {
         background-color: white;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         padding: 30px 15px 30px;
-        .h5 {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .titleList {
-                text-align: left;
-                font-weight: 700;
-            }
+
+        .titleList {
+            text-align: center;
+            font-weight: 700;
         }
         .box {
             min-width: 685px;
@@ -406,3 +402,6 @@ body {
 }
 /* ========== MEDIA QUERIES ==========*/
 /* For small devices reduce search*/
+@media only screen and (max-width: 1000px) {
+    /* For mobile phones: */
+}

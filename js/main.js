@@ -15,7 +15,7 @@ const playRepeatElement = document.querySelector('.play-repeat');
 const randomElement = document.querySelector('.play-random');
 const heartElement = document.querySelector('.heart-music');
 
-const numberListElement = document.querySelector('.numberList');
+// const numberListElement = document.querySelector('.numberList');
 
 let isPlaying = true;
 let indexSong = 0;
@@ -214,7 +214,9 @@ function initListSong() {
   // });
 }
 
-function displaySongPlay() {}
+function getAllList() {
+  return document.querySelectorAll('ul>li[hidden]');
+}
 
 (() => {
   start(musicList, indexSong);
@@ -270,8 +272,6 @@ function displaySongPlay() {}
       heartElement.classList.add('active');
     }
   });
-
-  numberListElement.textContent = `${musicList.length} songs on the list 🎼`;
 
   // render list
   initListSong();

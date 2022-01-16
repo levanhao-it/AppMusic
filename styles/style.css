@@ -385,20 +385,8 @@ body {
   /* Handle on hover */
 }
 
-.main .listmusic .h5 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.main .listmusic .h5 .titleList {
-  text-align: left;
+.main .listmusic .titleList {
+  text-align: center;
   font-weight: 700;
 }
 
@@ -546,4 +534,7 @@ body {
 
 /* ========== MEDIA QUERIES ==========*/
 /* For small devices reduce search*/
+@media only screen and (max-width: 1000px) {
+  /* For mobile phones: */
+}
 /*# sourceMappingURL=style.css.map */
