@@ -15,6 +15,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap"
     rel="stylesheet">
 
+
+
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="./styles/style.css">
@@ -24,47 +26,160 @@
 </head>
 
 <body>
-  <div class="music">
-    <h5 class="status">Now playing</h5>
-    <div class="music-thumb">
-      <img src="https://2sao.vietnamnetjsc.vn/images/2021/04/29/23/53/3.jpg" alt="" class="music-image">
-    </div>
-    <div class="music-content">
-      <div class="content">
-        <h3 class="music-name">Muộn rồi mà sao còn</h3>
-        <h4 class="singer">Sơn Tùng Mtp</h4>
+
+
+  <!--========== NAV ==========-->
+  <div class="nav" id="navbar">
+    <nav class="nav__container">
+      <div>
+        <div class="nav__list">
+          <div class="nav__items">
+            <img src="./images/logo.png" alt="" class="nav__items__img">
+            <a href="#" class="nav__link active">
+              <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+              <span class="nav__name">Home</span>
+            </a>
+
+            <a href="#" class="nav__link">
+              <ion-icon name="grid-outline" class="nav__icon"></ion-icon>
+
+              <span class="nav__name">Browse</span>
+            </a>
+
+
+            <a href="#" class="nav__link">
+              <ion-icon name="albums-outline" class="nav__icon"></ion-icon>
+              <span class="nav__name">Album</span>
+            </a>
+
+            <a href="#" class="nav__link">
+              <ion-icon name="person-outline" class="nav__icon"></ion-icon>
+
+              <span class="nav__name">Artists</span>
+            </a>
+
+            <a href="#" class="nav__link">
+              <ion-icon name="videocam-outline" class="nav__icon"></ion-icon>
+              <span class="nav__name">Videos</span>
+            </a>
+          </div>
+
+          <div class="nav__items">
+            <h4 class="nav__subtitle">My Music</h4>
+
+            <a href="#" class="nav__link">
+              <ion-icon name="alarm-outline" class="nav__icon"></ion-icon>
+              <span class="nav__name">Recently Played</span>
+            </a>
+
+            <a href="#" class="nav__link">
+              <ion-icon name="document-outline" class="nav__icon"></ion-icon>
+              <span class="nav__name">Local file</span>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <ion-icon name="heart" class="heart-music"></ion-icon>
-    </div>
+      <a href="#" class="nav__link nav__logout">
+        <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+        <span class="nav__name">Log Out</span>
+      </a>
+    </nav>
+  </div>
+  <!--========== CONTENTS ==========-->
 
-    <input type="range" name="range" id="range" class="range">
-    <audio src="https://github.com/levanhao-it/AppMusic/raw/master/music/1.mp3" id="song"></audio>
-    <div class="timer">
-      <div class="duration">2:10</div>
-      <div class="remaining">-3:10</div>
-    </div>
-    <div class="controls">
-      <ion-icon name="shuffle" class="play-random"></ion-icon>
-      <ion-icon name="play-skip-back" class="play-back"></ion-icon>
-      <div class="play">
-        <div class="play-inner">
-          <ion-icon name="play" class="play-icon"></ion-icon>
+  <div class="main">
+    <!--========== HEADER ==========-->
+    <header class="header">
+      <div class="header__container">
+        <div class="header__search">
+          <ion-icon name="search" class="icon-search"></ion-icon>
+          <input type="search" placeholder="Search" class="header__input">
+
         </div>
 
+        <div class="header__toggle">
+          <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="music col-5">
+          <h5 class="status">Now playing</h5>
+          <div class="music-thumb">
+            <img src="https://2sao.vietnamnetjsc.vn/images/2021/04/29/23/53/3.jpg" alt="" class="music-image">
+          </div>
+          <div class="music-content">
+            <div class="content">
+              <h3 class="music-name">Muộn rồi mà sao còn</h3>
+              <h4 class="singer">Sơn Tùng Mtp</h4>
+            </div>
+
+            <ion-icon name="heart" class="heart-music"></ion-icon>
+          </div>
+
+          <input type="range" name="range" id="range" class="range">
+          <audio src="./music/1.mp3" id="song"></audio>
+          <div class="timer">
+            <div class="duration">2:10</div>
+            <div class="remaining">-3:10</div>
+          </div>
+          <div class="controls">
+            <ion-icon name="shuffle" class="play-random"></ion-icon>
+            <ion-icon name="play-skip-back" class="play-back"></ion-icon>
+            <div class="play">
+              <div class="play-inner">
+                <ion-icon name="play" class="play-icon"></ion-icon>
+              </div>
+
+            </div>
+
+            <ion-icon name="play-skip-forward" class="play-forward"></ion-icon>
+            <ion-icon name="repeat-outline" class="play-repeat"></ion-icon>
+          </div>
+        </div>
+        <div class="listmusic col-7">
+          <div class="h5">
+            <h5 class="titleList">List song</h5>
+            <h6 class="numberList">List song </h6>
+          </div>
+
+          <div class="box">
+            <ul class="listSong" id="listSong">
+            </ul>
+          </div>
+
+        </div>
       </div>
 
-      <ion-icon name="play-skip-forward" class="play-forward"></ion-icon>
-      <ion-icon name="repeat-outline" class="play-repeat"></ion-icon>
+
     </div>
   </div>
 
+  <template id="songTemplate">
+    <li class="">
+      <div class="container">
+        <div class="row">
+          <div class="id col-1">01</div>
+          <div class="image col-2"> <img src="https://i.scdn.co/image/ab67616d0000b27329f906fe7a60df7777b02ee1" alt=""
+              class="imageList "></div>
 
+          <div class="name col-4">Muôn roi ma sao con</div>
+          <div class="authorlist col-3">Muôn roi ma sao con</div>
+          <ion-icon name="play" class="play-icon col-1"></ion-icon>
+        </div>
+      </div>
+
+    </li>
+  </template>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/nav.js"></script>
+
 </body>
 
 </html>

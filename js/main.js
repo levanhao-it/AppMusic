@@ -15,6 +15,8 @@ const playRepeatElement = document.querySelector('.play-repeat');
 const randomElement = document.querySelector('.play-random');
 const heartElement = document.querySelector('.heart-music');
 
+const numberListElement = document.querySelector('.numberList');
+
 let isPlaying = true;
 let indexSong = 0;
 let isRepeat = false;
@@ -24,15 +26,15 @@ let isHeart = false;
 const musicList = [
   {
     id: 1,
-    title: 'WALK ON DA STREET',
-    author: '16 Typh x 16 BrT Cukak ',
+    title: 'Walk On Da Street',
+    author: '16 Typh x 16 BrT',
     file: '1.mp3',
     image: 'https://i.ytimg.com/vi/mLc9JrE-UKc/maxresdefault.jpg',
   },
   {
     id: 2,
-    title: 'MUỘN RỒI MÀ SAO CÒN',
-    author: 'SƠN TÙNG MTP ',
+    title: 'Muộn rồi mà sao còn',
+    author: 'Sơn Tùng MTP ',
     file: '2.mp3',
     image: 'https://2sao.vietnamnetjsc.vn/images/2021/04/29/23/53/3.jpg',
   },
@@ -50,6 +52,13 @@ const musicList = [
     file: '4.mp3',
     image:
       'https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/9/c/5/8/9c58b3a2091e7e3bce691074c962429d.jpg',
+  },
+  {
+    id: 5,
+    title: 'Trốn Tìm',
+    author: 'Đen',
+    file: '5.mp3',
+    image: 'https://i1.sndcdn.com/artworks-SulYyzvm47QgVmqH-yL2nCw-t500x500.jpg',
   },
 ];
 
@@ -88,6 +97,10 @@ function playPause() {
     playElement.innerHTML = `<ion-icon name="play"></ion-icon>`;
     isPlaying = true;
   }
+}
+function play() {
+  songElement.play();
+  playElement.innerHTML = `<ion-icon name="pause-circle"></ion-icon>`;
 }
 
 function displayTimer() {
@@ -131,17 +144,79 @@ function handleEndSong() {
 }
 
 function start(musicList, indexSong) {
-  songElement.setAttribute(
-    'src',
-    `https://github.com/levanhao-it/AppMusic/raw/master/music/${musicList[indexSong].file}`
-  );
+  songElement.setAttribute('src', `./music/${musicList[indexSong].file}`);
   musicNameElement.textContent = musicList[indexSong].title;
   authorElement.textContent = musicList[indexSong].author;
   imageElment.setAttribute('src', musicList[indexSong].image);
 }
 
+function createSongElement(song) {
+  if (!song) return;
+
+  const template = document.getElementById('songTemplate');
+  if (!template) return;
+
+  const songElement = template.content.firstElementChild.cloneNode(true);
+  songElement.dataset.id = song.id;
+
+  //render
+  const titleElement = songElement.querySelector('.name');
+  if (titleElement) titleElement.textContent = song.title;
+
+  const authorElement = songElement.querySelector('.authorlist');
+  if (authorElement) authorElement.textContent = song.author;
+
+  const idElement = songElement.querySelector('.id');
+  if (idElement) idElement.textContent = song.id < 10 ? `0${song.id}` : song.id;
+
+  const imgElement = songElement.querySelector('.imageList');
+  if (imgElement) imgElement.setAttribute('src', song.image);
+
+  return songElement;
+}
+
+function initListSong() {
+  const ulElement = document.getElementById('listSong');
+  if (!ulElement) return;
+  for (const song of musicList) {
+    const liElement = createSongElement(song);
+    ulElement.appendChild(liElement);
+  }
+
+  const liActive = ulElement.querySelector(`[data-id="${musicList[indexSong].id}"]`);
+  liActive.classList.add('active');
+
+  const liList = ulElement.querySelectorAll('li');
+
+  for (const li of liList) {
+    li.addEventListener('click', () => {
+      for (const li of liList) {
+        li.classList.remove('active');
+      }
+      li.classList.add('active');
+      indexSong = Number.parseInt(li.dataset.id);
+      start(musicList, indexSong - 1);
+      play();
+    });
+  }
+  return indexSong;
+
+  // ulElement.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   li = e.target;
+  //   console.log(li);
+  //   indexSong = Number.parseInt(li.dataset.id);
+  //   console.log(indexSong);
+  //   start(musicList, indexSong - 1);
+  //   playPause();
+  // });
+}
+
+function displaySongPlay() {}
+
 (() => {
   start(musicList, indexSong);
+
   if (!playElement) return;
   playElement.addEventListener('click', playPause);
   if (!nextElement) return;
@@ -193,4 +268,9 @@ function start(musicList, indexSong) {
       heartElement.classList.add('active');
     }
   });
+
+  numberListElement.textContent = `${musicList.length} songs on the list 🎼`;
+
+  // render list
+  initListSong();
 })();

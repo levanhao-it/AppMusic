@@ -23,6 +23,10 @@ body {
   line-height: 1.5;
 }
 
+a {
+  text-decoration: none;
+}
+
 input,
 button,
 select,
@@ -34,6 +38,7 @@ img,
 picture {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 /* remove animation for people who've turned them off */
@@ -53,12 +58,124 @@ picture {
 
 body {
   font-family: "Poppins", sans-serif;
-  padding: 20px;
+  padding: 0px;
 }
 
-.music {
-  max-width: 500px;
-  margin: 0 auto;
+.nav {
+  float: left;
+  width: 15%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding: 1rem 1rem 0;
+  background-color: white;
+  z-index: 100;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.nav__container {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 3rem;
+  padding-top: 0.5rem;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.nav__logo {
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+.nav__list, .nav__items {
+  display: -ms-grid;
+  display: grid;
+}
+
+.nav__list a, .nav__items a {
+  color: black;
+}
+
+.nav__list .active, .nav__items .active {
+  color: #d83155;
+}
+
+.nav__list__img, .nav__items__img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100rem;
+}
+
+.nav__list {
+  row-gap: 2.5rem;
+}
+
+.nav__items {
+  row-gap: 1.2rem;
+}
+
+.nav__subtitile {
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.nav__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav__link:hover {
+  color: #d83155;
+}
+
+.nav__icon {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.nav__name {
+  white-space: nowrap;
+}
+
+.nav__logout {
+  margin-top: 5rem;
+}
+
+.nav a {
+  color: black;
+}
+
+.show-menu {
+  left: 0;
+}
+
+.main {
+  float: right;
+  width: 85%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffeede), to(#80e0ec));
+  background-image: linear-gradient(#ffeede, #80e0ec);
+  min-height: 100vh;
+}
+
+.main .music {
+  max-width: 450px;
+  margin: 30px 0px 30px 50px;
   border-radius: 12px;
   background-color: white;
   -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -66,19 +183,19 @@ body {
   padding: 30px 15px 30px;
 }
 
-.music .status {
+.main .music .status {
   text-align: center;
   margin-bottom: 30px;
   font-weight: 700;
 }
 
-.music .music-thumb {
+.main .music .music-thumb {
   width: 200px;
   height: 200px;
   margin: 0 auto 25px;
 }
 
-.music .music-thumb img {
+.main .music .music-thumb img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -88,12 +205,12 @@ body {
           box-shadow: 0 0 0 3px #ffb86b, 0 0 0 6px white, 0 0 0 9px #ff6bcb;
 }
 
-.music .music-thumb.is-playing {
+.main .music .music-thumb.is-playing {
   -webkit-animation: spinner 5s infinite linear;
           animation: spinner 5s infinite linear;
 }
 
-.music .music-content {
+.main .music .music-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -106,22 +223,22 @@ body {
   margin-bottom: 40px;
 }
 
-.music .music-content .content .music-name {
+.main .music .music-content .content .music-name {
   font-size: 18px;
   font-weight: 400 bolder;
 }
 
-.music .music-content .content .singer {
+.main .music .music-content .content .singer {
   font-size: 17px;
   font-weight: 300;
 }
 
-.music .music-content .heart-music {
+.main .music .music-content .heart-music {
   cursor: pointer;
   font-size: 20px;
 }
 
-.music .range {
+.main .music .range {
   -webkit-appearance: none;
   /* Hides the slider so that custom slider can be made */
   width: 100%;
@@ -131,13 +248,13 @@ body {
   margin-bottom: 10px;
 }
 
-.music .range::-webkit-slider-runnable-track {
+.main .music .range::-webkit-slider-runnable-track {
   width: 100%;
   height: 4px;
   background-color: #999;
 }
 
-.music .range::-webkit-slider-thumb {
+.main .music .range::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 15px;
   height: 15px;
@@ -148,7 +265,7 @@ body {
           box-shadow: 0 0 0 3px white, 0 0 0 6px rgba(100, 100, 111, 0.05);
 }
 
-.music .timer {
+.main .music .timer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,7 +280,7 @@ body {
   margin-bottom: 40px;
 }
 
-.music .controls {
+.main .music .controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -177,11 +294,11 @@ body {
   cursor: pointer;
 }
 
-.music .controls .play {
+.main .music .controls .play {
   position: relative;
 }
 
-.music .controls .play .play-inner {
+.main .music .controls .play .play-inner {
   width: 50px;
   height: 50px;
   border-radius: 100rem;
@@ -202,7 +319,7 @@ body {
   z-index: 2;
 }
 
-.music .controls .play:before {
+.main .music .controls .play:before {
   content: "";
   position: absolute;
   inset: 0;
@@ -213,48 +330,204 @@ body {
   border-radius: 100rem;
 }
 
-.music .controls .play-back {
+.main .music .controls .play-back {
   font-size: 20px;
   border-radius: 100rem;
 }
 
-.music .controls .play-back:hover {
+.main .music .controls .play-back:hover {
   -webkit-box-shadow: 0px 0px 0px 5px #cccccc;
           box-shadow: 0px 0px 0px 5px #cccccc;
 }
 
-.music .controls .play-forward {
+.main .music .controls .play-forward {
   font-size: 20px;
   border-radius: 100rem;
 }
 
-.music .controls .play-forward:hover {
+.main .music .controls .play-forward:hover {
   -webkit-box-shadow: 0px 0px 0px 5px #cccccc;
           box-shadow: 0px 0px 0px 5px #cccccc;
 }
 
-.music .controls .play-repeat {
+.main .music .controls .play-repeat {
   font-size: 20px;
   border-radius: 100rem;
 }
 
-.music .controls .play-repeat:hover {
+.main .music .controls .play-repeat:hover {
   -webkit-box-shadow: 0px 0px 0px 5px #cccccc;
           box-shadow: 0px 0px 0px 5px #cccccc;
 }
 
-.music .controls .play-random {
+.main .music .controls .play-random {
   font-size: 20px;
   border-radius: 100rem;
 }
 
-.music .controls .play-random:hover {
+.main .music .controls .play-random:hover {
   -webkit-box-shadow: 0px 0px 0px 5px #cccccc;
           box-shadow: 0px 0px 0px 5px #cccccc;
+}
+
+.main .listmusic {
+  max-width: 700px;
+  max-height: 80vh;
+  margin: 30px 0px 30px 50px;
+  border-radius: 12px;
+  background-color: white;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 30px 15px 30px;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.main .listmusic .h5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .listmusic .h5 .titleList {
+  text-align: left;
+  font-weight: 700;
+}
+
+.main .listmusic .box {
+  min-width: 685px;
+  height: 67vh;
+  overflow: auto;
+}
+
+.main .listmusic .box ul {
+  list-style-type: none;
+  margin: 0px 20px;
+  padding-left: 0px;
+}
+
+.main .listmusic .box ul li {
+  margin: 20px 0px 10px 0px;
+  padding: 30px 0px;
+  background-color: #e5e2e2;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.main .listmusic .box ul li .image {
+  margin: -15px;
+}
+
+.main .listmusic .box ul li .image .imageList {
+  width: 55px;
+  height: 55px;
+  border-radius: 100rem;
+}
+
+.main .listmusic .box ul li .id {
+  font-weight: 500;
+}
+
+.main .listmusic .box ul li .name {
+  font-weight: 600;
+}
+
+.main .listmusic .box ul li .play-icon {
+  font-size: 20px;
+  color: chartreuse;
+}
+
+.main .listmusic .box ul .active {
+  background-color: #d83155;
+  color: white;
+}
+
+.main .listmusic ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.main .listmusic ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px grey;
+          box-shadow: inset 0 0 1px grey;
+  border-radius: 10px;
+}
+
+.main .listmusic ::-webkit-scrollbar-thumb {
+  background: #80e0ec;
+  border-radius: 100rem;
+}
+
+.main .listmusic ::-webkit-scrollbar-thumb:hover {
+  background: #80e0ec;
+}
+
+.main .header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-box-shadow: 0 1px 0 #999;
+          box-shadow: 0 1px 0 #999;
+  padding: 0 1rem;
+  z-index: 100;
+}
+
+.main .header .header__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main .header .header__container .header__logo {
+  display: none;
+}
+
+.main .header .header__container .header__search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  background-color: white;
+  border-radius: 16px;
+}
+
+.main .header .header__container .header__search .icon-search {
+  padding: 12px 0px 0px 15px;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  color: #d83155;
+}
+
+.main .header .header__container .header__input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: white;
+  padding: 10px;
 }
 
 .active {
-  color: #ff6bcb;
+  color: #d83155;
 }
 
 @-webkit-keyframes spinner {
@@ -270,4 +543,7 @@ body {
             transform: rotate(360deg);
   }
 }
+
+/* ========== MEDIA QUERIES ==========*/
+/* For small devices reduce search*/
 /*# sourceMappingURL=style.css.map */
