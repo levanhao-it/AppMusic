@@ -63,12 +63,17 @@ const musicList = [
 ];
 
 function changeSong(dir) {
+  const liList = document.querySelectorAll('ul>li');
+  for (const li of liList) {
+    li.classList.remove('active');
+  }
   if (dir === 1) {
     // next song
     indexSong++;
     if (indexSong >= musicList.length) {
       indexSong = 0;
     }
+
     isPlaying = true;
   } else if (dir === -1) {
     // pre
@@ -81,6 +86,8 @@ function changeSong(dir) {
     indexSong = Math.trunc(Math.random() * musicList.length);
     isPlaying = true;
   }
+  const liElement = document.querySelector(`ul>li[data-id="${indexSong + 1}"]`);
+  liElement.classList.add('active');
   start(musicList, indexSong);
   playPause();
 }
