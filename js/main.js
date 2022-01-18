@@ -143,10 +143,7 @@ function handleEndSong() {
     isPlaying = true;
     playPause();
   } else if (isRandom) {
-    indexSong = Math.trunc(Math.random() * musicList.length);
-    start(musicList, indexSong);
-    isPlaying = true;
-    playPause();
+    changeSong(0);
   } else {
     changeSong(1);
   }
@@ -204,21 +201,12 @@ function initListSong() {
       }
       li.classList.add('active');
       indexSong = Number.parseInt(li.dataset.id);
+      console.log(musicList, indexSong);
       start(musicList, indexSong - 1);
       play();
+      console.log(li);
     });
   }
-  return indexSong;
-
-  // ulElement.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   li = e.target;
-  //   console.log(li);
-  //   indexSong = Number.parseInt(li.dataset.id);
-  //   console.log(indexSong);
-  //   start(musicList, indexSong - 1);
-  //   playPause();
-  // });
 }
 
 function getAllList() {
